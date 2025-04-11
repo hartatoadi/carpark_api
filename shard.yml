@@ -1,0 +1,19 @@
+name: carpark_api
+version: 0.1.0
+
+authors:
+  - Hartato Adi <hartatoadi@gmail.com>
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+  sqlite3:
+    github: crystal-lang/crystal-sqlite3
+
+targets:
+  carpark_api:
+    main: src/carpark_api.cr
+
+crystal: '>= 1.15.1'
+
+license: MIT
