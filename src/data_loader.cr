@@ -14,11 +14,9 @@ module DataLoader
   end
 
   def self.load_static_info
-    puts "Fetching static carpark info..."
-
-    url = "https://data.gov.sg/dataset/3f122bcb-7c62-44b3-b4c1-8fcfee3e0b80/resource/9b4c5c57-e218-4fef-b7ad-c91c4cb674b0/download/hdb-carpark-information.csv"
-    response = HTTP::Client.get(url)
-    parsed = CSV.parse(response.body)
+    puts "Loading static carpark info from file..."
+    file_path = "./data/HDBCarparkInformation.csv"
+    parsed = CSV.parse(File.read(file_path))
     csv = parsed.to_a
     header = csv[0]
     rows = csv[1..]
@@ -45,8 +43,7 @@ module DataLoader
         SQL
       end
     end
-
-    puts "Static info loaded."
+    puts "Static info loaded from file."
   end
 
   def self.load_availability
