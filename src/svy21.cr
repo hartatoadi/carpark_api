@@ -1,12 +1,11 @@
 module SVY21
-  # Constants used in SVY21 formula
   A = 6378137.0
   F = 1 / 298.257223563
   O = 1.0 - F
   B = A * O
   E2 = (2 * F) - (F ** 2)
 
-  ORIGIN_LAT = deg_to_rad(1.366666)   # degrees to radians
+  ORIGIN_LAT = deg_to_rad(1.366666)
   ORIGIN_LON = deg_to_rad(103.833333)
   FALSE_N = 38744.572
   FALSE_E = 28001.642

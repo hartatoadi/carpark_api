@@ -1,27 +1,32 @@
-# carpark_api
+# HDB Carpark Finder API
 
-TODO: Write a description here
+A simple Crystal/Kemal-based API that returns nearby carparks sorted by distance with real-time availability.
 
-## Installation
+## Features
 
-TODO: Write installation instructions here
+- Convert SVY21 coordinates to WGS84
+- Load static carpark info from CSV
+- Load real-time availability from Singapore Data Gov API
+- Compute distance using Haversine formula
+- Serve results via `/carparks?latitude=...&longitude=...` endpoint
+- Sorts by distance ascending
+- [Bonus] Unit-tested
 
 ## Usage
 
-TODO: Write usage instructions here
+```bash
+# Install dependencies
+shards install
 
-## Development
+# Load database
+crystal fetch_data.cr
 
-TODO: Write development instructions here
+# Run the API
+crystal run src/carpark_api.cr
+```
 
-## Contributing
+## Example Request
 
-1. Fork it (<https://github.com/your-github-user/carpark_api/fork>)
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
-
-## Contributors
-
-- [Hartato Adi](https://github.com/your-github-user) - creator and maintainer
+```bash
+GET /carparks?latitude=1.29587&longitude=103.85847
+```
